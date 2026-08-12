@@ -4,3 +4,4 @@ Setting up
 New commit
 New commite
 Another commit
+Fixed
