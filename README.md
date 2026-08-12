@@ -8,4 +8,4 @@ Fixed
 new commit
 Newcommir
 New
-New domcomit
+New domcomit new
