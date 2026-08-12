@@ -10,3 +10,5 @@ Newcommir
 New
 New domcomit new
 Working
+
+new commit
