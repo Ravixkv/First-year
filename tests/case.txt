@@ -5,3 +5,7 @@ We A system test case is a detailed set of conditions, steps, and expected resul
 import unittest
 import requests
 
+TC-001: End-to-End User Registration and Authentication FlowVerify that a new user can successfully create an account and access the secure dashboard. Before executing, ensure the system database is online and the application server is running. 
+First, navigate to the /register page and input a unique username (testuser1) and a strong password (SecurePass123!), then click the "Submit" button; the system must process this data and return a 201 Created status code along with a success message confirmation. 
+Next, navigate to the /login endpoint using those exact same credentials to attempt authentication; the system should successfully authorize the session, generate a valid JWT token, and grant access to the account dashboard. 
+Finally, attempt a negative flow by submitting the correct username with an incorrect password (WrongPass); the security system must block the login request, return a 401 Unauthorized status code, and display an "Invalid credentials" error message to prevent unauthorized access.Would you like me to write a similar test case para
