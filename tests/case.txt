@@ -2,3 +2,53 @@ contains the test files and code
  New case
 New case
 We A system test case is a detailed set of conditions, steps, and expected results used to verify that an entire software product meets its specified requirements and functions correctly from end to end. It evaluates complete operational scenarios, checking how integrated components work together under realistic conditions. System testing evaluates the software from a user's perspective, focusing on security, performance, and cross-platform compatibility. It differs from integration testing, which only checks the communication between individual modules rather than the application as a whole.Major Testing TypesFunctional: Verifies system features work correctly.Performance: Checks speed, stability, and scalability.Security: Protects data against unauthorized access.Usability: Evaluates the user interface and experience.Standard WorkflowAnalyze: Review business and technical requirements.Design: Write specific, end-to-end test cases.Execute: Run tests and log actual results.Report: Track bugs and confirm final resolution.Let me know if you want to explore a specific testing type like security or performance, or if you need a step-by-step guide on how to write a bug report.
+import unittest
+import requests
+
+class UserLifecycleSystemTest(unittest.TestCase):
+    
+    @classmethod
+    def setUpClass(cls):
+        """Runs once before the entire system test suite starts."""
+        cls.base_url = "http://localhost:5000/api"
+        cls.credentials = {
+            "username": "system_tester",
+            "password": "SecurePassword123!"
+        }
+
+    def test_01_full_user_lifecycle_flow(self):
+        """Validates the entire end-to-end user workflow sequentially."""
+        
+        # Step 1: Execute User Registration
+        register_url = f"{self.base_url}/register"
+        reg_response = requests.post(register_url, json=self.credentials)
+        
+        # Verify Registration System Results
+        self.assertEqual(reg_response.status_code, 201)
+        self.assertIn("User created successfully", reg_response.json().get("message"))
+
+        # Step 2: Execute User Login (Dependent on Step 1)
+        login_url = f"{self.base_url}/login"
+        login_response = requests.post(login_url, json=self.credentials)
+        
+        # Verify Login System Results
+        self.assertEqual(login_response.status_code, 200)
+        self.assertIn("token", login_response.json())
+
+    def test_02_login_rejection_with_invalid_password(self):
+        """Negative Flow: Validates security system blocks unauthorized access."""
+        login_url = f"{self.base_url}/login"
+        bad_credentials = {
+            "username": self.credentials["username"],
+            "password": "WrongPassword"
+        }
+        
+        response = requests.post(login_url, json=bad_credentials)
+        
+        # Verify Security System Rejection
+        self.assertEqual(response.status_code, 401)
+        self.assertIn("Invalid credentials", response.json().get("error"))
+
+if __name__ == "__main__":
+    # Execute the system tests
+    unittest.main()
