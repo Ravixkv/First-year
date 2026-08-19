@@ -9,3 +9,10 @@ TC-001: End-to-End User Registration and Authentication FlowVerify that a new us
 First, navigate to the /register page and input a unique username (testuser1) and a strong password (SecurePass123!), then click the "Submit" button; the system must process this data and return a 201 Created status code along with a success message confirmation. 
 Next, navigate to the /login endpoint using those exact same credentials to attempt authentication; the system should successfully authorize the session, generate a valid JWT token, and grant access to the account dashboard. 
 Finally, attempt a negative flow by submitting the correct username with an incorrect password (WrongPass); the security system must block the login request, return a 401 Unauthorized status code, and display an "Invalid credentials" error message to prevent unauthorized access.Would you like me to write a similar test case para
+A test case is a set of actions, inputs, and expected results used to determine if a software feature works correctly. 
+In integration testing, test cases focus on the boundaries, data flow, and communication between different modules or external systems.
+Key Components of a Test 
+CaseTest ID: Unique identifier (e.g., TC_INT_001).Description: Brief explanation of what is being tested.
+Pre-conditions: Required system state before execution (e.g., "Database is initialized").
+Test Steps: Sequential actions to execute the test.Test Data: The specific inputs used during the test.
+Expected Result: How the system should ideally behave.Actual Result: How the system actually behaved (filled after execution).
