@@ -1,1 +1,6 @@
 This file contains integration test records
+Integration testing checks how different software parts, modules, or services work together. Unlike unit tests that test small pieces alone with mock data, integration tests use real or closely matched external systems—like databases or APIs—to make sure data flows correctly between them.
+Key ConceptsPurpose:
+Find interface bugs and communication errors between combined units.
+Scope: Tests multiple components at the same time.Speed: Runs slower than unit tests because it sets up real services or databases.
+Tools: Uses real connections or tools like Docker containers to spin up test databases.
