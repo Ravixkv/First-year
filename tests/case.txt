@@ -16,3 +16,6 @@ CaseTest ID: Unique identifier (e.g., TC_INT_001).Description: Brief explanation
 Pre-conditions: Required system state before execution (e.g., "Database is initialized").
 Test Steps: Sequential actions to execute the test.Test Data: The specific inputs used during the test.
 Expected Result: How the system should ideally behave.Actual Result: How the system actually behaved (filled after execution).
+If you want to build or automate this, let me know:
+What specific feature or scenario you are trying to test.
+Whether you need a manual test template or an automated test script (e.g., in Python, JavaScript).
